@@ -74,7 +74,7 @@ public class ListNode {
 		//		link the head with k+1th  Node (head.next=(k+1)th Node;
 		ListNode newHead=new ListNode(0);
 
-		ListNode curr=head;
+		//ListNode curr=head;
 		ListNode tail=kthNode(head, k);
 		ListNode head2=tail.next;
 		newHead.next=tail;
