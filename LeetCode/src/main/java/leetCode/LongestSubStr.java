@@ -3,26 +3,9 @@ package leetCode;
 import java.util.HashMap;
 
 public class LongestSubStr {
-	
-	// Method 1, naive method O(n*n)
-	public int lengthOfLongestSubstring(String s) {
-		char[] str=s.toCharArray();
-		int longest=0, j=0;
-		for(int i=0; i<str.length-1;i++){
-			for (j=i+1;j<str.length;j++){
-				if (str[i]==str[j]){
-					break;
-				}
-				
-			}
-			if (longest<(j-i)) longest=j-i;
-			
-		}
-		return longest;
-	}
-	
-	// Method 2,  better performance O(n)
-	public int lengthOfLongestSubstring2(String s) {
+
+	// Method 1,  better performance O(n)
+	public int lengthOfLongestSubstring1(String s) {
         if (s.length()==0) return 0;
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         int max=0;
@@ -37,8 +20,8 @@ public class LongestSubStr {
     }
 	
 	
-	//Method 3, O(n)
-    public int lengthOfLongestSubstring3(String s) {
+//	//Method 2, O(n)
+    public int lengthOfLongestSubstring2(String s) {
         int result = 0;
         int[] cache = new int[256];
         for (int i = 0, j = 0; i < s.length(); i++) {
@@ -51,11 +34,11 @@ public class LongestSubStr {
 	
 	public static void main(String[] args){
 		LongestSubStr str=new LongestSubStr();
-		String s="abcabcbb";
+		String s="abcabcbbefg";
 		//String s="abcdefghijklmnopq";
-		int l=str.lengthOfLongestSubstring3(s);
+		int l=str.lengthOfLongestSubstring2(s);
 		System.out.println(l);
-		int l1=str.lengthOfLongestSubstring2(s);
+		int l1=str.lengthOfLongestSubstring1(s);
 		System.out.println(l1);
 	}
 
