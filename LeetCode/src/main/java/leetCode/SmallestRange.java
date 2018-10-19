@@ -54,13 +54,23 @@ public class SmallestRange {
 	public int smallestRange(int[] A, int K) {
         int N = A.length;
        Arrays.sort(A);
+       for (int i=0;i<A.length;i++){
+    	   System.out.println(A[i]);
+       }
+       
        int ans = A[N-1] - A[0];
 
        for (int i = 0; i < A.length - 1; ++i) {
+    	   System.out.println(i);
            int a = A[i], b = A[i+1];
            int high = Math.max(A[N-1] - K, a + K);
+           //System.out.println("A[N-1] "+A[N-1]);
+           //System.out.println("a + K "+(a + K));
+           System.out.println("high: "+high);
            int low = Math.min(A[0] + K, b - K);
+           System.out.println("low: "+ low);
            ans = Math.min(ans, high - low);
+           System.out.println("ans: "+ans);
            
        }
        return ans;
@@ -68,8 +78,9 @@ public class SmallestRange {
 	
 	public static void main(String[] args){
 		SmallestRange sr=new SmallestRange();
-		int[] A={3,1,10};
-		int K=4;
+		//int[] A={3,1,10};
+		int[] A={3,1,10,8,11};
+		int K=7;
 		System.out.println(sr.smallestRange(A, K));
 	}
 
