@@ -39,6 +39,7 @@ public class WordPattern {
 	
 	public boolean wordPattern2(String pattern, String str) {
 		String[] words = str.split(" ");
+		if(words.length!=pattern.length()) return false;
 		Map map = new HashMap();
 		for (int i=0;i<pattern.length();i++){
 			if(map.containsKey(pattern.charAt(i))){
